@@ -1,0 +1,24 @@
+{
+    "name": "appzz/fast-image",
+    "description": "Get type & size from remote image",
+    "type": "library",
+    "keywords": [
+        "remote image size"
+    ],
+    "homepage": "https://github.com/a-pp-zz/fast-image",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CoolSwitcher",
+            "email": "ds@appzz.pw",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "appzz/arr": "1.*"
+    },
+    "autoload": {
+        "psr-4": {"AppZz\\Http\\Helpers\\": "src/"}
+    }
+}
