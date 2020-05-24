@@ -11,6 +11,7 @@ composer require 'appzz/fast-image'
 Usage:
 
 ```
+<?php
 $fi = new AppZz\Http\Helpers\Fasimage ($url);
 $type = $fi->get_type ();
 $size = $fi->get_size ();
