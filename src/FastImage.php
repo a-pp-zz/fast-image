@@ -184,8 +184,12 @@ class FastImage {
 			while (strlen($this->_response) < $end && $response !== false) {
 				$need = $end - ftell($this->_handle);
 
-				if ($response = fread($this->_handle, $need)) {
-					$this->_response .= $response;
+				if ($need > 0) {
+					if ($response = fread($this->_handle, $need)) {
+						$this->_response .= $response;
+					} else {
+						return false;
+					}
 				} else {
 					return false;
 				}
@@ -198,12 +202,19 @@ class FastImage {
 		return $result;
 	}
 
-
 	private function _get_byte()
 	{
 		$c = $this->_get_chars(1);
-		$b = unpack("C", $c);
-		return reset($b);
+
+		if ($c) {
+			$b = unpack("C", $c);
+
+			if ($b) {
+				return reset($b);
+			}
+		}
+
+		return false;
 	}
 
 
